@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/movie/movie",
+    "pages/profile/profile"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#10ac84",
+    "navigationBarTitleText": "胶片屋",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/movie/movie",
+        "text": "电影",
+        "iconPath": "images/movies.png",
+        "selectedIconPath": "images/movies-selected.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/profile.png",
+        "selectedIconPath": "images/profile-selected.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap47.json"
+}

@@ -1,0 +1,6 @@
+<!--miniprogram/pages/movie/movie.wxml-->
+<van-button type="default">学院网址</van-button>
+<van-button type="primary">办事大厅</van-button>
+<van-button type="info">一卡通</van-button>
+<van-button type="warning">学付宝</van-button>
+<van-button type="danger">今日校园</van-button>
