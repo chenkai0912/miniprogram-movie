@@ -12,8 +12,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    //执行云函数发起请求
+  //将加载电影列表的函数提取出来
+  getMovieList: function () {
+    wx.showLoading({
+      title: '精彩马上呈现...',
+    })
     wx.cloud.callFunction({
       name: 'movielist',
       //请求云函数携带的参数，起始页和每页记录数
@@ -28,12 +31,27 @@ Page({
           //每次请求追加到movielist中
           movieList: this.data.movieList.concat(JSON.parse(res.result).subjects)
         })
-      }
-    ).catch(
+        //加载成功后，隐藏进度框
+        wx.hideLoading();
+      }).catch(
       err=>{
         console.log(err);
+        wx.hideLoading();
+
       }
     )
+  },
+  //获取电影详情
+  gotoCommet: function (event) {
+    //跳转到comment详情页，保留当前页，又返回按钮
+    //传入movieid
+    wx.navigateTo({
+      url: `../comment/comment?movieid=${event.target.dataset.movieid}`
+    })
+  },
+  onLoad: function (options) {
+    //执行云函数发起请求
+    this.getMovieList();
   },
 
   /**
@@ -75,7 +93,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    //执行云函数发起请求
+    this.getMovieList();
   },
 
   /**

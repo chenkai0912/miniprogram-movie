@@ -11,6 +11,7 @@
     <view>主演:
       <text wx:for="{{item.casts}}" wx:key="index">{{item.name}} </text>
     </view>
-    <view >年份:{{item.year}}</view>
+    <view >年份:{{item.year}}  </view>
+   <button class="movie-commet" bindtap="gotoCommet" data-movieid="{{item.id}}">评价</button>
   </view>
 </view>

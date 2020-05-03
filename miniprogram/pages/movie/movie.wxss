@@ -16,14 +16,33 @@
 .movie-info {
   flex: 1;
   color: #bdc3c7;
+  font-size: 34rpx;
 }
 
 .movie-title {
   color: #10ac84;
   font-size: 40rpx;
   font-weight: bolder;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
 }
 
 .movie-rating {
   color: #faaf00;
+}
+
+.movie-commet {
+  display: inline-block;
+  padding: 10rpx;
+  width: 100rpx;
+  height: 50rpx;
+  background: #e54847;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 30rpx;
+  
 }
