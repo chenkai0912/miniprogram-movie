@@ -5,14 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    //定义返回的数据对象
+      detail: {},
+      // 评价的内容，字符串
+      content: ''
   },
-
+  //内容改变触发的函数
+  onContentChange: function () {
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       console.log(options);
+      //调用电影详情云函数
+      wx.cloud.callFunction({
+        name: 'getDetail',
+        //携带电影的id参数
+        data: {
+          movieid: options.movieid
+        }
+      }).then(
+        res=>{
+          console.log(res);
+          this.setData({
+            detail: JSON.parse(res.result)
+          })
+        }
+      ).catch(
+        err=>{
+          console.log(err);
+        }
+      )
   },
 
   /**
@@ -63,4 +88,4 @@ Page({
   onShareAppMessage: function () {
 
   }
-})
+})             
