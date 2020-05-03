@@ -6,7 +6,7 @@ Page({
    */
   data: {
     //定义数组接受电影数据
-    movielist:[]
+    movieList:[]
   },
 
   /**
@@ -18,7 +18,7 @@ Page({
       name: 'movielist',
       //请求云函数携带的参数，起始页和每页记录数
       data: {
-        start: this.data.movielist.length,
+        start: this.data.movieList.length,
         count: 10
       }
     }).then(
@@ -26,7 +26,7 @@ Page({
         console.log(res);
         this.setData({
           //每次请求追加到movielist中
-          movielist: this.data.movielist.concat(JSON.parse(res.result).subjects)
+          movieList: this.data.movieList.concat(JSON.parse(res.result).subjects)
         })
       }
     ).catch(
